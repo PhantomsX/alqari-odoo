@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Landing on Documents keeps the app shell visible instead of opening a modal wizard. -->
+    <menuitem id="menu_alqari_root"
+              name="Al-Qari"
+              action="action_alqari_documents"
+              web_icon="alqari_integration,static/description/icon.png"
+              groups="group_alqari_user"
+              sequence="90"/>
+
+    <menuitem id="menu_alqari_documents"
+              name="Documents"
+              parent="menu_alqari_root"
+              action="action_alqari_documents"
+              sequence="10"/>
+
+    <menuitem id="menu_alqari_process"
+              name="Process Document"
+              parent="menu_alqari_root"
+              action="action_alqari_process_wizard"
+              sequence="20"/>
+
+    <menuitem id="menu_alqari_validation_rules"
+              name="Validation Rules"
+              parent="menu_alqari_root"
+              action="action_alqari_validation_rules"
+              groups="group_alqari_manager"
+              sequence="30"/>
+
+    <record id="action_alqari_configuration" model="ir.actions.act_window">
+        <field name="name">Al-Qari Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'alqari_integration'}</field>
+    </record>
+
+    <menuitem id="menu_alqari_configuration"
+              name="Configuration"
+              parent="menu_alqari_root"
+              action="action_alqari_configuration"
+              groups="group_alqari_manager"
+              sequence="100"/>
+</odoo>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_alqari_process_wizard_form" model="ir.ui.view">
+        <field name="name">alqari.process.wizard.form</field>
+        <field name="model">alqari.process.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Process Document">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Document name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Upload">
+                            <field name="upload_file" filename="upload_filename"/>
+                            <field name="upload_filename" invisible="1"/>
+                        </group>
+                        <group string="OCR">
+                            <field name="ocr_language"/>
+                            <field name="ocr_output_format"/>
+                        </group>
+                    </group>
+
+                    <group string="Extraction">
+                        <field name="extract_field_line_ids" nolabel="1" colspan="2">
+                            <tree editable="bottom" create="1" delete="1">
+                                <field name="sequence" widget="handle"/>
+                                <field name="line_type" column_invisible="1"/>
+                                <field name="name" placeholder="e.g. invoice_number"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                    <separator string="Classification"/>
+                    <div colspan="2" class="d-flex align-items-center gap-2 mb-2">
+                        <label for="run_classify" class="mb-0"/>
+                        <field name="run_classify" nolabel="1"/>
+                    </div>
+                    <group invisible="not run_classify">
+                        <field name="category_line_ids" nolabel="1" colspan="2">
+                            <tree editable="bottom" create="1" delete="1">
+                                <field name="sequence" widget="handle"/>
+                                <field name="line_type" column_invisible="1"/>
+                                <field name="name" placeholder="e.g. invoice"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                    <separator string="Validation"/>
+                    <div colspan="2" class="d-flex align-items-center gap-2 mb-2">
+                        <label for="run_validate" class="mb-0"/>
+                        <field name="run_validate" nolabel="1"/>
+                    </div>
+                    <group invisible="not run_validate">
+                        <div colspan="2" class="text-muted mb-2">
+                            Validation rules check extracted fields. Global rules: Al-Qari → Validation Rules.
+                        </div>
+                        <field name="required_field_line_ids" nolabel="1" colspan="2">
+                            <tree editable="bottom" create="1" delete="1">
+                                <field name="sequence" widget="handle"/>
+                                <field name="line_type" column_invisible="1"/>
+                                <field name="name" placeholder="e.g. passport_number"/>
+                            </tree>
+                        </field>
+                        <label for="validation_rule_line_ids" string="Validation Rules" colspan="2"/>
+                        <field name="validation_rule_line_ids" nolabel="1" colspan="2">
+                            <tree>
+                                <field name="sequence" widget="handle"/>
+                                <field name="field_name"/>
+                                <field name="severity"/>
+                                <field name="check_type" string="Check"/>
+                                <field name="compare_value"/>
+                                <field name="message"/>
+                            </tree>
+                            <form string="Validation Rule">
+                                <group>
+                                    <group>
+                                        <field name="field_name" placeholder="passport_number"/>
+                                        <field name="severity"/>
+                                        <field name="check_type" string="Check"/>
+                                    </group>
+                                    <group>
+                                        <field name="compare_value" invisible="check_type == 'required'"
+                                               placeholder="2423"/>
+                                        <field name="message" placeholder="Passport number is required."/>
+                                    </group>
+                                </group>
+                                <p class="text-muted">Message shown when this rule is not satisfied.</p>
+                            </form>
+                        </field>
+                        <field name="validation_rules" colspan="2"
+                               placeholder="Optional AI rule: vendor name must match PO"/>
+                    </group>
+
+                    <separator string="Human Review"/>
+                    <div colspan="2" class="d-flex align-items-center gap-2 mb-2">
+                        <label for="run_human_review" class="mb-0"/>
+                        <field name="run_human_review" nolabel="1"/>
+                    </div>
+                    <group invisible="not run_human_review">
+                        <field name="human_review_trigger" colspan="2"/>
+                        <div colspan="2" class="d-flex align-items-center gap-2 mb-2">
+                            <label for="review_send_email" class="mb-0"/>
+                            <field name="review_send_email" nolabel="1"/>
+                        </div>
+                        <field name="review_assignee_email" colspan="2"
+                               invisible="not review_send_email"
+                               placeholder="reviewer@company.com"
+                               required="review_send_email"/>
+                        <field name="review_instructions" colspan="2"
+                               placeholder="Verify vendor name and total before approving"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_process" type="object" string="Process Document" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_alqari_process_wizard" model="ir.actions.act_window">
+        <field name="name">Process Document</field>
+        <field name="res_model">alqari.process.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

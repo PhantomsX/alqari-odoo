@@ -1,0 +1,14 @@
+﻿# Build artifacts
+dist/
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

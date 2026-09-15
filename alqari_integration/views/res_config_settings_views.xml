@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_alqari" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.alqari</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Al-Qari" name="alqari_integration">
+                    <block title="API Connection">
+                        <setting string="API Base URL"
+                                 help="Al-Qari production API endpoint. Use https://api.alqari.sa unless your account team gave you a different URL.">
+                            <field name="alqari_api_base_url" placeholder="https://api.alqari.sa"/>
+                        </setting>
+                        <setting string="API Key"
+                                 help="Your qari_... key from the Al-Qari dashboard.">
+                            <field name="alqari_api_key" password="True" placeholder="qari_..."/>
+                        </setting>
+                        <setting string="Test Connection">
+                            <button name="action_alqari_test_connection" type="object"
+                                    string="Test Connection" class="btn-link" icon="fa-plug"/>
+                        </setting>
+                    </block>
+
+                    <block title="OCR &amp; Extraction Defaults">
+                        <setting string="Extract Fields"
+                                 help="One field name per row. These are extracted from each document by default.">
+                            <field name="alqari_default_extract_fields" invisible="1"/>
+                            <field name="alqari_extract_field_line_ids" nolabel="1">
+                                <tree editable="bottom" create="1" delete="1">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" placeholder="e.g. invoice_number"/>
+                                </tree>
+                            </field>
+                        </setting>
+                        <setting string="OCR Language">
+                            <field name="alqari_default_ocr_language"/>
+                        </setting>
+                        <setting string="OCR Output">
+                            <field name="alqari_default_ocr_output"/>
+                        </setting>
+                    </block>
+
+                    <block title="Classification">
+                        <setting string="Categories"
+                                 help="One category per row. The classifier chooses from this list.">
+                            <field name="alqari_default_classify_categories" invisible="1"/>
+                            <field name="alqari_category_line_ids" nolabel="1">
+                                <tree editable="bottom" create="1" delete="1">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" placeholder="e.g. invoice"/>
+                                </tree>
+                            </field>
+                        </setting>
+                        <setting string="Min Confidence"
+                                 help="Minimum confidence (0–1). Lower scores use the fallback category.">
+                            <field name="alqari_classify_min_confidence"/>
+                        </setting>
+                        <setting string="Classify by Default">
+                            <field name="alqari_default_run_classify"/>
+                        </setting>
+                    </block>
+
+                    <block title="Validation">
+                        <setting string="Required Fields"
+                                 help="One field per row. Extracted fields that must be present when validation runs.">
+                            <field name="alqari_validation_required_fields" invisible="1"/>
+                            <field name="alqari_required_field_line_ids" nolabel="1">
+                                <tree editable="bottom" create="1" delete="1">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" placeholder="e.g. invoice_number"/>
+                                </tree>
+                            </field>
+                        </setting>
+                        <setting string="AI Validation Rules"
+                                 help="Free-text rules for advanced checks. For numeric field rules, use Al-Qari → Field Validation Rules.">
+                            <field name="alqari_validation_rules" placeholder="Invoice vendor name must match the PO vendor"/>
+                        </setting>
+                        <setting string="Min Pass Score"
+                                 help="Optional minimum score (0–100). Leave empty to skip.">
+                            <field name="alqari_validation_min_score"/>
+                        </setting>
+                        <setting string="Fail on Warnings">
+                            <field name="alqari_validation_fail_on_warning"/>
+                        </setting>
+                        <setting string="Validate by Default">
+                            <field name="alqari_default_run_validate"/>
+                        </setting>
+                    </block>
+
+                    <block title="Human Review">
+                        <setting string="Human Review by Default"
+                                 help="Send documents to the Al-Qari human review queue after processing.">
+                            <field name="alqari_default_run_human_review"/>
+                        </setting>
+                        <setting string="Human Review Trigger"
+                                 help="Choose when documents are sent to human review.">
+                            <field name="alqari_human_review_trigger"/>
+                        </setting>
+                        <setting string="Reviewer Email"
+                                 help="Must match the reviewer's work email in Al-Qari. Required to send notifications.">
+                            <field name="alqari_review_assignee_email" placeholder="reviewer@company.com"/>
+                        </setting>
+                        <setting string="Review Instructions">
+                            <field name="alqari_review_instructions"
+                                   placeholder="Verify vendor name and total before approving"/>
+                        </setting>
+                        <setting string="Send Review Email"
+                                 help="Email the reviewer when a document enters the review queue.">
+                            <field name="alqari_review_send_email"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

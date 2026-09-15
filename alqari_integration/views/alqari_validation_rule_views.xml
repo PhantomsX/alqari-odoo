@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_alqari_validation_rule_tree" model="ir.ui.view">
+        <field name="name">alqari.validation.rule.tree</field>
+        <field name="model">alqari.validation.rule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="field_name"/>
+                <field name="severity"/>
+                <field name="check_type" string="Check"/>
+                <field name="compare_value"/>
+                <field name="message"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_alqari_validation_rule_form" model="ir.ui.view">
+        <field name="name">alqari.validation.rule.form</field>
+        <field name="model">alqari.validation.rule</field>
+        <field name="arch" type="xml">
+            <form string="Validation Rule">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                                invisible="active"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Passport number is required"/></h1>
+                    </div>
+                    <group string="Validation Rule">
+                        <group>
+                            <field name="field_name" placeholder="passport_number"/>
+                            <field name="severity"/>
+                            <field name="check_type" string="Check"/>
+                        </group>
+                        <group>
+                            <field name="compare_value" invisible="check_type == 'required'"
+                                   placeholder="10000"/>
+                            <field name="message" placeholder="Passport number is required."/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <p class="text-muted">
+                        Message shown when this rule is not satisfied.
+                    </p>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_alqari_validation_rules" model="ir.actions.act_window">
+        <field name="name">Validation Rules</field>
+        <field name="res_model">alqari.validation.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first validation rule
+            </p>
+            <p>
+                Define business checks that determine whether the document passes validation —
+                for example <em>passport_number Required</em> or <em>total Greater than 10000</em>.
+            </p>
+        </field>
+    </record>
+</odoo>

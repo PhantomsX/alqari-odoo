@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_alqari_document_user,alqari.document.user,model_alqari_document,group_alqari_user,1,1,1,0
+access_alqari_document_manager,alqari.document.manager,model_alqari_document,group_alqari_manager,1,1,1,1
+access_alqari_process_wizard_user,alqari.process.wizard.user,model_alqari_process_wizard,group_alqari_user,1,1,1,1
+access_alqari_process_wizard_line_user,alqari.process.wizard.line.user,model_alqari_process_wizard_line,group_alqari_user,1,1,1,1
+access_alqari_process_wizard_validation_line_user,alqari.process.wizard.validation.line.user,model_alqari_process_wizard_validation_line,group_alqari_user,1,1,1,1
+access_alqari_document_condition_line_user,alqari.document.condition.line.user,model_alqari_document_condition_line,group_alqari_user,1,1,1,1
+access_alqari_document_condition_line_manager,alqari.document.condition.line.manager,model_alqari_document_condition_line,group_alqari_manager,1,1,1,1
+access_res_config_settings_extract_field_line,alqari.settings.extract.field.line,model_res_config_settings_extract_field_line,base.group_system,1,1,1,1
+access_res_config_settings_category_line,alqari.settings.category.line,model_res_config_settings_category_line,base.group_system,1,1,1,1
+access_res_config_settings_required_field_line,alqari.settings.required.field.line,model_res_config_settings_required_field_line,base.group_system,1,1,1,1
+access_alqari_validation_rule_user,alqari.validation.rule.user,model_alqari_validation_rule,group_alqari_user,1,0,0,0
+access_alqari_validation_rule_manager,alqari.validation.rule.manager,model_alqari_validation_rule,group_alqari_manager,1,1,1,1

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="validation_rule_total_positive" model="alqari.validation.rule">
+        <field name="name">Total must be positive</field>
+        <field name="sequence">10</field>
+        <field name="field_name">total</field>
+        <field name="severity">error</field>
+        <field name="check_type">greater_than</field>
+        <field name="compare_value">0</field>
+        <field name="message">Invoice total must be greater than zero.</field>
+    </record>
+</odoo>

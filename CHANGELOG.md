@@ -1,5 +1,10 @@
 # Changelog — Al-Qari Odoo Module
 
+## 17.0.1.0.6 — 2026-09-15
+
+### Fixed
+- Manifest version uses Odoo 17 format (`17.0.1.0.6`) required by Apps Store scanner
+
 ## 1.0.6 — 2026-09-15
 
 ### Changed

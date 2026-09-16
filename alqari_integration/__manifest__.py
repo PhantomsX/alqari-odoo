@@ -1,6 +1,6 @@
 {
     "name": "Al-Qari Document AI",
-    "version": "17.0.1.0.8",
+    "version": "17.0.1.0.9",
     "category": "Productivity",
     "summary": "OCR, extract fields, classify, and validate documents via Al-Qari API",
     "description": """

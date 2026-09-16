@@ -1,5 +1,10 @@
 # Changelog — Al-Qari Odoo Module
 
+## 17.0.1.0.9 — 2026-09-16
+
+### Fixed
+- Apps Store feature grid: aligned headings and body text across all four columns
+
 ## 17.0.1.0.8 — 2026-09-16
 
 ### Changed

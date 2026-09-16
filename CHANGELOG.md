@@ -1,5 +1,10 @@
 # Changelog — Al-Qari Odoo Module
 
+## 17.0.1.0.10 — 2026-09-16
+
+### Fixed
+- Apps Store feature grid: use fixed-height title rows (table layout) compatible with Odoo store CSS
+
 ## 17.0.1.0.9 — 2026-09-16
 
 ### Fixed

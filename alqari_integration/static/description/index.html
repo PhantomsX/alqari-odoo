@@ -1,11 +1,18 @@
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12 text-center">
-            <img src="banner.png" alt="Al-Qari" style="max-width: 560px; width: 100%; height: auto; margin-bottom: 16px;"/>
-            <h2 class="oe_slogan">Document AI for Odoo</h2>
-            <p class="oe_mt32">
-                Connect Odoo to <strong>Al-Qari</strong> for OCR, field extraction,
-                document classification, validation, and human review. Powered by the
+            <img src="banner.png" alt="Al-Qari Document AI" style="max-width: 100%; width: 880px; height: auto; border-radius: 8px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 text-center">
+            <h2 class="oe_slogan" style="color: #0A1045;">Document AI for Odoo 17</h2>
+            <p class="oe_mt16" style="font-size: 16px; max-width: 820px; margin-left: auto; margin-right: auto;">
+                Connect Odoo to <strong>Al-Qari</strong> for OCR, field extraction, document
+                classification, validation, and human review. All processing runs on the
                 Al-Qari cloud API at <code>https://api.alqari.sa</code>.
             </p>
         </div>
@@ -15,20 +22,52 @@
 <section class="oe_container oe_dark">
     <div class="oe_row oe_spaced">
         <div class="oe_span3 text-center">
-            <h3>Upload &amp; OCR</h3>
-            <p>Upload PDFs and receipt photos from Odoo. Text is extracted automatically.</p>
+            <h3 style="color: #0A1045;">Upload and OCR</h3>
+            <p>Upload PDFs and receipt photos from Odoo. Text and layout are extracted automatically.</p>
         </div>
         <div class="oe_span3 text-center">
-            <h3>Extract Fields</h3>
-            <p>Pull invoice numbers, totals, dates, vendors, and custom fields.</p>
+            <h3 style="color: #0A1045;">Extract Fields</h3>
+            <p>Pull invoice numbers, totals, dates, vendors, and custom fields into Odoo records.</p>
         </div>
         <div class="oe_span3 text-center">
-            <h3>Classify</h3>
-            <p>Detect document type using configurable categories.</p>
+            <h3 style="color: #0A1045;">Classify</h3>
+            <p>Detect document type using configurable categories such as invoice, contract, or memo.</p>
         </div>
         <div class="oe_span3 text-center">
-            <h3>Validate</h3>
-            <p>Enforce field rules like <em>total &gt; 10000</em> with PASS/FAIL results.</p>
+            <h3 style="color: #0A1045;">Validate</h3>
+            <p>Enforce field rules like <em>total &gt; 10000</em> with clear PASS or FAIL results.</p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 text-center">
+            <img src="hero_screenshot.png" alt="Al-Qari document pipeline" style="max-width: 100%; width: 960px; height: auto; border: 1px solid #E5E7EB; border-radius: 12px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span6">
+            <h3 style="color: #0A1045;">What you get</h3>
+            <ul>
+                <li>API key authentication to <code>https://api.alqari.sa</code></li>
+                <li>Process Document wizard for PDF and image uploads</li>
+                <li>Field validation rules with configurable checks</li>
+                <li>Human review queue with email notifications</li>
+                <li>Stored API responses on each document record</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <h3 style="color: #0A1045;">Quick start</h3>
+            <ol>
+                <li>Install the module and open <strong>Al-Qari &rarr; Configuration</strong>.</li>
+                <li>Set <strong>API Base URL</strong> and your <code>qari_...</code> API key.</li>
+                <li>Optionally configure <strong>Field Validation Rules</strong>.</li>
+                <li>Use <strong>Al-Qari &rarr; Process Document</strong> to upload a file.</li>
+            </ol>
         </div>
     </div>
 </section>
@@ -36,17 +75,15 @@
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h3>Quick start</h3>
-            <ol>
-                <li>Install the module and open <strong>Al-Qari → Configuration</strong>.</li>
-                <li>Set <strong>API Base URL</strong> (<code>https://api.alqari.sa</code>) and your <code>qari_...</code> key.</li>
-                <li>Optionally configure <strong>Field Validation Rules</strong>.</li>
-                <li>Use <strong>Al-Qari → Process Document</strong> to upload a PDF or image.</li>
-            </ol>
+            <h3 style="color: #0A1045;">Requirements</h3>
             <p>
-                <strong>Requirements:</strong> Odoo 17, Python <code>requests</code>,
-                an Al-Qari API key (<code>qari_...</code>), and outbound HTTPS access to
+                Odoo 17, Python package <code>requests</code>, an Al-Qari API key
+                (<code>qari_...</code>), and outbound HTTPS access to
                 <code>https://api.alqari.sa</code>.
+            </p>
+            <p>
+                This is a free connector. Sign up for an Al-Qari account at
+                <a href="https://alqari.sa">alqari.sa</a> to obtain an API key.
             </p>
             <p>
                 <strong>Support:</strong> <a href="https://alqari.sa">alqari.sa</a>

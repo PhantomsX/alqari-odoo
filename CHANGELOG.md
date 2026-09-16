@@ -1,5 +1,11 @@
 # Changelog — Al-Qari Odoo Module
 
+## 17.0.1.0.8 — 2026-09-16
+
+### Changed
+- Regenerated Apps Store **icon** (256x256) and **banner** (880x450) from the Al-Qari chat-bubble logo SVG
+- Redesigned `static/description/index.html` listing with hero screenshot and cleaner layout
+
 ## 17.0.1.0.6 — 2026-09-15
 
 ### Fixed
